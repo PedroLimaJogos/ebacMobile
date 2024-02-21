@@ -19,9 +19,9 @@ public class itemCollactableBase : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Tocou em algo");
         if (collision.transform.CompareTag(tagCompare))
         {
+            Debug.Log("Player coletou");
             Collect();
         }
     }
