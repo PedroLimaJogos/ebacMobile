@@ -5,7 +5,7 @@ using UnityEngine;
 public class itemCollactableBase : MonoBehaviour
 {
     public string tagCompare = "player";
-    public ParticleSystem particleSystem;
+    //public ParticleSystem particleSystem;
     public float timeToHide = 3f;
     public GameObject graphicItem;
 
@@ -40,7 +40,7 @@ public class itemCollactableBase : MonoBehaviour
 
     protected virtual void OnCollect()
     {
-        if (particleSystem != null) particleSystem.Play();
+        //if (particleSystem != null) particleSystem.Play();
         if (audioSource != null) audioSource.Play();
     }
 
