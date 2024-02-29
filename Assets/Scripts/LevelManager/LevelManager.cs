@@ -5,15 +5,18 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public Transform container;
-
     public List<GameObject> levels;
-
-    [Header("Level Pieces")]
     public List<LevelPieceBasedSetup> levelPieceBasedSetups;
 
     public float timeBetweenPieces = .3f;
     [SerializeField] private int _index;
     private GameObject _currentLevel;
+
+
+
+
+    [Header("Level Pieces")]
+
 
     [SerializeField] private List<LevelPieceBase> _spawnedPieces = new List<LevelPieceBase>();
     private LevelPieceBasedSetup _currSetup;
@@ -23,6 +26,7 @@ public class LevelManager : MonoBehaviour
         //SpawnNextLevel();
         CreateLevelPieces();
     }
+
     private void SpawnNextLevel()
     {
         if (_currentLevel != null)
@@ -40,16 +44,7 @@ public class LevelManager : MonoBehaviour
         _currentLevel.transform.localPosition = Vector3.zero;
     }
 
-    IEnumerator CreateLevelPiecesCoroutine()
-    {
-        _spawnedPieces = new List<LevelPieceBase>();
 
-        for (int i = 0; i < _currSetup.piecesNumber; i++)
-        {
-            CreateLevelPiece(_currSetup.levelPieces);
-            yield return new WaitForSeconds(timeBetweenPieces);
-        }
-    }
 
     private void ResetLevelIndex()
     {
@@ -61,6 +56,7 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log(_index);
         CleanSpawnedPieces();
+
         if (_currSetup != null)
         {
             _index++;
@@ -68,8 +64,8 @@ public class LevelManager : MonoBehaviour
             {
                 ResetLevelIndex();
             }
+
         }
-        Debug.Log(levelPieceBasedSetups.Count);
         _currSetup = levelPieceBasedSetups[_index];
 
         for (int i = 0; i < _currSetup.piecesStartNumber; i++)
@@ -84,6 +80,8 @@ public class LevelManager : MonoBehaviour
         {
             CreateLevelPiece(_currSetup.levelPiecesEnd);
         }
+
+        colorManager.Instance.ChangeColorByType(_currSetup.artType);
 
     }
     private void CreateLevelPiece(List<LevelPieceBase> list)
@@ -102,10 +100,10 @@ public class LevelManager : MonoBehaviour
             spawnedPiece.transform.localPosition = Vector3.zero;
         }
 
-        foreach (var p in spawnedPiece.GetComponentsInChildren<ArtPiece>())
-        {
-            p.changePiece(artManager.Instance.getSetupByType(_currSetup.artType).gameObject);
-        }
+        // foreach (var p in spawnedPiece.GetComponentsInChildren<ArtPiece>())
+        // {
+        //     p.changePiece(artManager.Instance.getSetupByType(_currSetup.artType).gameObject);
+        // }
 
         _spawnedPieces.Add(spawnedPiece);
     }
@@ -124,7 +122,18 @@ public class LevelManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            SpawnNextLevel();
+            CreateLevelPieces();
+        }
+    }
+
+    IEnumerator CreateLevelPiecesCoroutine()
+    {
+        _spawnedPieces = new List<LevelPieceBase>();
+
+        for (int i = 0; i < _currSetup.piecesNumber; i++)
+        {
+            CreateLevelPiece(_currSetup.levelPieces);
+            yield return new WaitForSeconds(timeBetweenPieces);
         }
     }
 }
