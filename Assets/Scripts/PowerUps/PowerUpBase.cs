@@ -15,13 +15,11 @@ public class PowerUpBase : itemCollactableBase
     }
     protected virtual void StartPowerUp()
     {
-        Debug.Log("Start power up");
         Invoke(nameof(EndPowerUp), duration);
     }
 
     // Update is called once per frame
     protected virtual void EndPowerUp()
     {
-        Debug.Log("End power up");
     }
 }

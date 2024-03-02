@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class LevelManager : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private List<LevelPieceBase> _spawnedPieces = new List<LevelPieceBase>();
     private LevelPieceBasedSetup _currSetup;
 
-    private void Awake()
+    private void Start()
     {
         //SpawnNextLevel();
         CreateLevelPieces();
@@ -54,7 +55,6 @@ public class LevelManager : MonoBehaviour
     #region 
     private void CreateLevelPieces()
     {
-        Debug.Log(_index);
         CleanSpawnedPieces();
 
         if (_currSetup != null)
@@ -70,22 +70,67 @@ public class LevelManager : MonoBehaviour
 
         for (int i = 0; i < _currSetup.piecesStartNumber; i++)
         {
+            Debug.Log("criando inicio");
             CreateLevelPiece(_currSetup.levelPiecesStart);
         }
         for (int i = 0; i < _currSetup.piecesNumber; i++)
         {
+            Debug.Log("criando meio");
             CreateLevelPiece(_currSetup.levelPieces);
         }
         for (int i = 0; i < _currSetup.piecesEndNumber; i++)
         {
+            Debug.Log("criando fim");
             CreateLevelPiece(_currSetup.levelPiecesEnd);
         }
 
         colorManager.Instance.ChangeColorByType(_currSetup.artType);
+        StartCoroutine(ScalePiecesByTime());
+    }
+
+    IEnumerator ScalePiecesByTime()
+    {
+        foreach (var p in _spawnedPieces)
+        {
+            p.transform.localScale = Vector3.zero;
+        }
+        yield return null;
+        for (int i = 0; i < _spawnedPieces.Count; i++)
+        {
+            _spawnedPieces[i].transform.DOScale(1, .2f);
+            yield return new WaitForSeconds(.1f);
+        }
 
     }
+
+    public artManager.ArtType randomizaArt()
+    {
+        artManager.ArtType art = artManager.ArtType.TYPE_01; ;
+
+        int escolha = UnityEngine.Random.Range(0, 3);
+        if (escolha == 0)
+        {
+            art = artManager.ArtType.TYPE_01;
+
+        }
+        else if (escolha == 1)
+        {
+            art = artManager.ArtType.TYPE_02;
+
+        }
+        else if (escolha == 2)
+        {
+            art = artManager.ArtType.BEACH;
+
+        }
+
+        return art;
+    }
+
     private void CreateLevelPiece(List<LevelPieceBase> list)
     {
+        _currSetup.artType = randomizaArt();
+
         var piece = list[Random.Range(0, list.Count)];
         var spawnedPiece = Instantiate(piece, container);
 
@@ -100,10 +145,10 @@ public class LevelManager : MonoBehaviour
             spawnedPiece.transform.localPosition = Vector3.zero;
         }
 
-        // foreach (var p in spawnedPiece.GetComponentsInChildren<ArtPiece>())
-        // {
-        //     p.changePiece(artManager.Instance.getSetupByType(_currSetup.artType).gameObject);
-        // }
+        foreach (var p in spawnedPiece.GetComponentsInChildren<ArtPiece>())
+        {
+            p.changePiece(artManager.Instance.getSetupByType(_currSetup.artType).gameObject);
+        }
 
         _spawnedPieces.Add(spawnedPiece);
     }
@@ -122,6 +167,7 @@ public class LevelManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
+            Debug.Log("troca");
             CreateLevelPieces();
         }
     }

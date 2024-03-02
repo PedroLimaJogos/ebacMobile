@@ -21,7 +21,6 @@ public class itemCollactableBase : MonoBehaviour
     {
         if (collision.transform.CompareTag(tagCompare))
         {
-            Debug.Log("Player coletou");
             Collect();
         }
     }

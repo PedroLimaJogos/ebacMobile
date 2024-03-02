@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine;
 public class LevelPieceBasedSetup : ScriptableObject
 {
     public artManager.ArtType artType;
+
+
 
     [Header("Pieces")]
     public List<LevelPieceBase> levelPiecesStart;
@@ -16,4 +19,5 @@ public class LevelPieceBasedSetup : ScriptableObject
     public int piecesStartNumber = 3;
     public int piecesNumber = 5;
     public int piecesEndNumber = 1;
+
 }

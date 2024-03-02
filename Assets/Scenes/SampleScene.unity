@@ -703,6 +703,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &414178451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 414178453}
+  - component: {fileID: 414178452}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &414178452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414178451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c327a534ceaecaa4cad54cbbb8938f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itens: []
+  scaleDuration: 0.2
+  scaleTimeBetweenPieces: 0.1
+  ease: 27
+--- !u!4 &414178453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414178451}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.36567, y: -9.871433, z: 14.473751}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &471045428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,6 +2388,7 @@ MonoBehaviour:
   levelPieceBasedSetups:
   - {fileID: 11400000, guid: 380d42bb429bd0645ace0ffaf72ea21d, type: 2}
   - {fileID: 11400000, guid: 1305b6dfd98337a42b457eb775cfe3cc, type: 2}
+  - {fileID: 11400000, guid: 18dd4b460931f814d8185a477c1b728d, type: 2}
   timeBetweenPieces: 0.3
   _index: 0
   _spawnedPieces: []
@@ -2461,9 +2510,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   artSetups:
   - artType: 0
-    gameObject: {fileID: 2474955276022651781, guid: b5a3a8c46dc7cfb4ca461de1e0eebcbd, type: 3}
-  - artType: 1
     gameObject: {fileID: 2030436910290057986, guid: 55d4f239d9822c2429188123691dd065, type: 3}
+  - artType: 1
+    gameObject: {fileID: 2474955276022651781, guid: b5a3a8c46dc7cfb4ca461de1e0eebcbd, type: 3}
+  - artType: 2
+    gameObject: {fileID: 624051667778147256, guid: 8d4630b75be20604f9e7cbf454540a59, type: 3}
 --- !u!4 &2113730603
 Transform:
   m_ObjectHideFlags: 0
@@ -2514,11 +2565,15 @@ MonoBehaviour:
   colorSetups:
   - artType: 0
     colors:
-    - {r: 0.05842829, g: 0.9528302, b: 0.12754045, a: 0}
+    - {r: 0.6961903, g: 0, b: 0.745283, a: 0}
     - {r: 0.8490566, g: 0.17221431, b: 0.17221431, a: 0}
   - artType: 1
     colors:
     - {r: 0.7940564, g: 0.9150943, b: 0.082013145, a: 0}
+    - {r: 0.121568635, g: 0.48924, b: 0.7372549, a: 0}
+  - artType: 2
+    colors:
+    - {r: 1, g: 1, b: 1, a: 0}
     - {r: 0.735849, g: 0.12148449, b: 0.6485927, a: 0}
 --- !u!4 &2128299664
 Transform:
@@ -2740,3 +2795,4 @@ SceneRoots:
   - {fileID: 7766573882290772388}
   - {fileID: 8802816546375165546}
   - {fileID: 2128299664}
+  - {fileID: 414178453}

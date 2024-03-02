@@ -16,8 +16,6 @@ public class artManager : Singleton<artManager>
 
     public artSetup getSetupByType(ArtType artType)
     {
-
-        Debug.Log("");
         return artSetups.Find(i => i.artType == artType);
 
     }
