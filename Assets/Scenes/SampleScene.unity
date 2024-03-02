@@ -25,8 +25,13 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
+<<<<<<< Updated upstream
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+=======
+  m_SubtractiveShadowColor: {r: 1, g: 1, b: 1, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 7e8b648c32e6d0b46ab92a32e411ee1b, type: 2}
+>>>>>>> Stashed changes
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +43,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
+<<<<<<< Updated upstream
   m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.79882795, g: 0.8867205, b: 0.874511, a: 1}
+>>>>>>> Stashed changes
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -680,6 +689,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
+=======
+--- !u!1 &414178451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 414178453}
+  - component: {fileID: 414178452}
+  m_Layer: 0
+  m_Name: CoinsAnimationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &414178452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414178451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c327a534ceaecaa4cad54cbbb8938f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itens: []
+  scaleDuration: 0.2
+  scaleTimeBetweenPieces: 0.1
+  ease: 27
+--- !u!4 &414178453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414178451}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> Stashed changes
 --- !u!1 &471045428
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,6 +754,7 @@ GameObject:
   - component: {fileID: 471045431}
   - component: {fileID: 471045434}
   - component: {fileID: 471045435}
+  - component: {fileID: 471045436}
   m_Layer: 0
   m_Name: VisualPlayer
   m_TagString: player
@@ -829,6 +890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 855295977}
+  _bounceHelper: {fileID: 471045436}
   lerpSpeed: 4
   speed: 5
   textMeshPro: {fileID: 1273248929}
@@ -838,6 +900,22 @@ MonoBehaviour:
   coinCollector: {fileID: 0}
   endScreen: {fileID: 153232043}
   startScreen: {fileID: 555119717}
+--- !u!114 &471045436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471045428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a2aa0f283550fe4195287b0c0b7f4d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleDuration: 0.2
+  scaleBounce: 1.2
+  scaleStech: {x: 1.2, y: 1, z: 1}
+  ease: 27
 --- !u!1 &555119717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2729,6 +2807,37 @@ GameObject:
 --- !u!1001 &1860410105
 PrefabInstance:
   m_ObjectHideFlags: 0
+<<<<<<< Updated upstream
+=======
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908759460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63da673b8d61de4b97b4580dd8183d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 633254670}
+  levels:
+  - {fileID: 4286978013479695967, guid: ba594025aec097b4a83eef4fa13fc19e, type: 3}
+  - {fileID: 4286978013479695967, guid: 20172f4cb7f4ceb4aa62c71891d98c02, type: 3}
+  - {fileID: 4286978013479695967, guid: d5fe9ab968e338744ab2c132315702a9, type: 3}
+  levelPieceBasedSetups:
+  - {fileID: 11400000, guid: 380d42bb429bd0645ace0ffaf72ea21d, type: 2}
+  - {fileID: 11400000, guid: 1305b6dfd98337a42b457eb775cfe3cc, type: 2}
+  - {fileID: 11400000, guid: 18dd4b460931f814d8185a477c1b728d, type: 2}
+  timeBetweenPieces: 0.3
+  _index: 1
+  _spawnedPieces: []
+--- !u!4 &1908759462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908759460}
+>>>>>>> Stashed changes
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3

@@ -23,6 +23,7 @@ public class itemCollactableBase : MonoBehaviour
         {
             Debug.Log("Player coletou");
             Collect();
+            PlayerController.Instance.Bounce();
         }
     }
     protected virtual void Collect()

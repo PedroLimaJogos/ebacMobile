@@ -20,7 +20,7 @@ public class ItemCollactableCoin : itemCollactableBase
         base.OnCollect();
         colider.enabled = false;
         collect = true;
-        //PlayerController.Instance.Bounce();
+        Debug.Log("coletou");
     }
 
     protected override void Collect()

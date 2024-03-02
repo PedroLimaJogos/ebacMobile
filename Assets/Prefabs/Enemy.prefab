@@ -8,10 +8,18 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< Updated upstream:Assets/Prefabs/Enemy.prefab
   - component: {fileID: 6825720565343541103}
   - component: {fileID: 8982280212746249400}
   - component: {fileID: 8777200546940394269}
   - component: {fileID: 1521377099909596438}
+=======
+  - component: {fileID: 4053464156825592668}
+  - component: {fileID: 5624317146909325047}
+  - component: {fileID: 6959557524850869639}
+  - component: {fileID: 2277102018425961226}
+  - component: {fileID: 974070728861310694}
+>>>>>>> Stashed changes:Assets/Prefabs/ArtType02 (1).prefab
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -105,3 +113,67 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream:Assets/Prefabs/Enemy.prefab
+=======
+--- !u!114 &974070728861310694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8297020580384133060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5014a485cf7d4a0418187e5564b3dcaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
+  meshRenderer: {fileID: 6959557524850869639}
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &8779382031523557872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9113139601924132343}
+  - component: {fileID: 3288818844528722357}
+  m_Layer: 0
+  m_Name: ArtType02 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9113139601924132343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779382031523557872}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.41, y: 0.48, z: 7.41}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4053464156825592668}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3288818844528722357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779382031523557872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e474fcb64331e4189201c930a9947b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentArt: {fileID: 8297020580384133060}
+>>>>>>> Stashed changes:Assets/Prefabs/ArtType02 (1).prefab

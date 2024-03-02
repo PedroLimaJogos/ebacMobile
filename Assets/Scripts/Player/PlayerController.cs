@@ -3,12 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
 {
     [Header("Lerp")]
     public Transform target;
+
+    [SerializeField] private BounceHelper _bounceHelper;
+
 
     public float lerpSpeed = 1f;
     public float speed = 1;
@@ -31,11 +35,18 @@ public class PlayerController : Singleton<PlayerController>
     private Vector3 _pos;
     private bool _canRun;
 
+    public void Bounce()
+    {
+        if (_bounceHelper != null)
+            _bounceHelper.Bounce();
+    }
     private void Start()
     {
+        this.transform.localScale = Vector3.zero;
         ResetSpeed();
         _startPosition = transform.position;
         _canRun = false;
+        PlayerGrowth();
     }
     void Update()
     {
@@ -82,19 +93,19 @@ public class PlayerController : Singleton<PlayerController>
     }
     public void PowerSpeedUp(float f)
     {
-        Debug.Log(_currentSpeed);
         _currentSpeed = f;
-        Debug.Log(_currentSpeed);
+        _bounceHelper.Stretch();
     }
     public void ResetSpeed()
     {
         _currentSpeed = speed;
+        _bounceHelper.Unstretch();
     }
-
     //INVENCIBLE
     public void SetInvencible(bool b = true)
     {
         invencible = b;
+
     }
 
     //Height
@@ -123,4 +134,9 @@ public class PlayerController : Singleton<PlayerController>
     }
 
     #endregion
+
+    public void PlayerGrowth()
+    {
+        this.transform.DOScale(1, 1f).SetEase(Ease.OutBounce);
+    }
 }
