@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Linq;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -18,12 +17,11 @@ public class coinsAnimationManager : Singleton<coinsAnimationManager>
     private void Start()
     {
         itens = new List<ItemCollactableCoin>();
-        StartAnimations();
     }
 
     public void registerCoin(ItemCollactableCoin i)
     {
-        if (!itens.Contains(i))
+        if (itens.Contains(i))
         {
             itens.Add(i);
             i.transform.localScale = Vector3.zero;
@@ -49,7 +47,6 @@ public class coinsAnimationManager : Singleton<coinsAnimationManager>
         {
             p.transform.localScale = Vector3.zero;
         }
-        Sort();
         yield return null;
         for (int i = 0; i < itens.Count; i++)
         {
@@ -57,12 +54,5 @@ public class coinsAnimationManager : Singleton<coinsAnimationManager>
             yield return new WaitForSeconds(.1f);
         }
 
-    }
-
-    private void Sort()
-    {
-        itens = itens.OrderBy(
-            x => Vector3.Distance(this.transform.position, x.transform.position)
-        ).ToList();
     }
 }

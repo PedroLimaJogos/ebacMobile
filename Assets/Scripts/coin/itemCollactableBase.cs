@@ -22,7 +22,6 @@ public class itemCollactableBase : MonoBehaviour
         if (collision.transform.CompareTag(tagCompare))
         {
             Collect();
-            PlayerController.Instance.Bounce();
         }
     }
     protected virtual void Collect()
