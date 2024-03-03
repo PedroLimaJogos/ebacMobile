@@ -765,6 +765,7 @@ GameObject:
   - component: {fileID: 471045431}
   - component: {fileID: 471045434}
   - component: {fileID: 471045435}
+  - component: {fileID: 471045436}
   m_Layer: 0
   m_Name: VisualPlayer
   m_TagString: player
@@ -810,7 +811,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 0.8, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &471045432
 MeshRenderer:
@@ -902,6 +903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 855295977}
+  _bounceHelper: {fileID: 471045436}
   lerpSpeed: 4
   speed: 5
   textMeshPro: {fileID: 1273248929}
@@ -912,6 +914,22 @@ MonoBehaviour:
   animatorManager: {fileID: 1619408841}
   endScreen: {fileID: 153232043}
   startScreen: {fileID: 555119717}
+--- !u!114 &471045436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471045428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70841c4428f8f10468d933dc0ab1d684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleDuration: 0.01
+  scaleBounce: 1.2
+  scaleStech: {x: 1, y: 1, z: 1.2}
+  ease: 27
 --- !u!1 &555119717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2390,7 +2408,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1305b6dfd98337a42b457eb775cfe3cc, type: 2}
   - {fileID: 11400000, guid: 18dd4b460931f814d8185a477c1b728d, type: 2}
   timeBetweenPieces: 0.3
-  _index: 0
+  _index: 1
   _spawnedPieces: []
 --- !u!4 &1908759462
 Transform:
@@ -2573,7 +2591,7 @@ MonoBehaviour:
     - {r: 0.121568635, g: 0.48924, b: 0.7372549, a: 0}
   - artType: 2
     colors:
-    - {r: 1, g: 1, b: 1, a: 0}
+    - {r: 1, g: 0.3909038, b: 0, a: 0}
     - {r: 0.735849, g: 0.12148449, b: 0.6485927, a: 0}
 --- !u!4 &2128299664
 Transform:

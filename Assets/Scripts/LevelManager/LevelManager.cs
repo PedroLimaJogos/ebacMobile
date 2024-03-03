@@ -70,17 +70,14 @@ public class LevelManager : MonoBehaviour
 
         for (int i = 0; i < _currSetup.piecesStartNumber; i++)
         {
-            Debug.Log("criando inicio");
             CreateLevelPiece(_currSetup.levelPiecesStart);
         }
         for (int i = 0; i < _currSetup.piecesNumber; i++)
         {
-            Debug.Log("criando meio");
             CreateLevelPiece(_currSetup.levelPieces);
         }
         for (int i = 0; i < _currSetup.piecesEndNumber; i++)
         {
-            Debug.Log("criando fim");
             CreateLevelPiece(_currSetup.levelPiecesEnd);
         }
 
@@ -100,6 +97,7 @@ public class LevelManager : MonoBehaviour
             _spawnedPieces[i].transform.DOScale(1, .2f);
             yield return new WaitForSeconds(.1f);
         }
+        coinsAnimationManager.Instance.StartAnimations();
 
     }
 
