@@ -6,12 +6,23 @@ public class PowerSpeedUp : PowerUpBase
 {
     [Header("Power Up Speed")]
     public float amountToSpeed;
-    // Start is called before the first frame update
+    public ParticleSystem particles;
+
     protected override void StartPowerUp()
     {
         base.StartPowerUp();
         PlayerController.Instance.PowerSpeedUp(amountToSpeed);
         PlayerController.Instance.SetPowerUpText("speed up");
+    }
+
+    protected virtual void OnCollect()
+    {
+
+        if (particleSystem != null)
+        {
+            if (particles != null) particles.transform.SetParent(null);
+            particles.Play();
+        }
     }
 
     // Update is called once per frame

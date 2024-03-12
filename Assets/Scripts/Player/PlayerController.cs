@@ -32,6 +32,11 @@ public class PlayerController : Singleton<PlayerController>
     private float _baseSpeedToAnimation = 7;
     public AnimatorManager animatorManager;
 
+    public ParticleSystem vfxDeath;
+
+    [Header("Animation")]
+    public float limits = 4;
+
     public GameObject endScreen;
     public GameObject startScreen;
 
@@ -59,6 +64,9 @@ public class PlayerController : Singleton<PlayerController>
         _pos = target.position;
         _pos.y = transform.position.y;
         _pos.z = transform.position.z;
+
+        if (_pos.x < -limits) _pos.x = -limits;
+        else if (_pos.x > limits) _pos.x = limits;
 
         transform.Translate(transform.forward * _currentSpeed * Time.deltaTime);
         transform.position = Vector3.Lerp(transform.position, _pos, lerpSpeed * Time.deltaTime);
@@ -99,6 +107,7 @@ public class PlayerController : Singleton<PlayerController>
         _canRun = false;
         endScreen.SetActive(true);
         animatorManager.Play(animationType);
+        if (vfxDeath != null) vfxDeath.Play();
     }
 
     #region POWER UP;
